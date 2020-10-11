@@ -28,7 +28,7 @@ class paymentMethod:
     def update(self, paymentMedthodNo, newName):
         data, columns = self.db.fetch ("SELECT * FROM paymentmethod WHERE code = '{}' ".format(paymentMedthodNo))
         if len(data) > 0:
-            self.db.execute ("UPDATE paymentmethod SET name = {}".format(newName))
+            self.db.execute ("UPDATE paymentmethod SET name = {} WHERE code = '{}'".format(newName,paymentMedthodNo))
         else:
             return {'Is Error': True, 'Error Message': "Payment No '{}' not found. Cannot Update.".format(paymentMedthodNo)}
 

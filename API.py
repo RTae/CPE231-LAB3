@@ -428,7 +428,8 @@ def report_unpaid_invoices():
                             INNER JOIN invoice as i \
 	                            ON li."Invoice No" = i.invoice_no \
                             INNER JOIN customer as c \
-	                            ON i.customer_code = c.customer_code'
+	                            ON i.customer_code = c.customer_code \
+                            WHERE i.amount_due - "Invoice Amount Received" !=  0'
                             )
     data1, columns1 = db.fetch (
                             'SELECT SUM(i.amount_due - "Invoice Amount Received") AS "Total invoice amount not paid"\

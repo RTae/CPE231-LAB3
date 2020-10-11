@@ -38,11 +38,11 @@ def main():
         waitKeyPress("Results after deleting INT33 (not exist error) and INT99.")
 
         # pretty print a dictionary (in helper functions):
-        #printDictData(products.dict)
+        printDictData(products.dump())
         waitKeyPress("Above is dictionary printed in better format.")
 
         # pretty print in column format a dictionary (in helper functions):
-        #printDictInCSVFormat(products.dict, ('Code',), ('Name', 'Units'))
+        printDictInCSVFormat(products.dump(), ('Code',), ('Name', 'Units'))
         waitKeyPress("Above is dictionary printed in csv format for copy/paste to excel.")
 
         """
