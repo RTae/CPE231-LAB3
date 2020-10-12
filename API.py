@@ -432,7 +432,7 @@ def report_unpaid_invoices():
                             WHERE i.amount_due - "Invoice Amount Received" !=  0'
                             )
     data1, columns1 = db.fetch (
-                            'SELECT SUM(i.amount_due - "Invoice Amount Received") AS "Total invoice amount not paid"\
+                            'SELECT SUM(i.amount_due - "Invoice Amount Received") AS "Total invoice amount not paid", COUNT(li) AS "Number of Invoice not paid" \
                             FROM(SELECT rli.invoice_no AS "Invoice No", SUM(rli.aph) as "Invoice Amount Received"\
 	                            FROM receipt_line_item as rli\
 	                            GROUP BY rli.invoice_no )as li\
@@ -442,4 +442,9 @@ def report_unpaid_invoices():
 
     result1 = row_as_dict(data, columns)
     printDictInCSVFormat(result1, ('Invoice No',), ('Invoice Date', 'Customer Name', 'Invoice Amount Due', 'Invoice Amount Received', 'Invoice Amount Not piad'))
-    print(columns1[0]+':',data1[0][0])
+    
+    dict_footer = {
+        columns1[0]: data1[0][0],
+        columns1[1]: data1[0][1]
+    }
+    print(dict_footer)
