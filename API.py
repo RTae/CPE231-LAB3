@@ -388,7 +388,7 @@ def delete_receipt_line(receipt, receiptNo, invoiceNo):
         print('Invoice Line Item Delete Success.')
     return result #send result for caller program to use
 
-def report_list_all_receipts():
+def report_list_all_receipts(receipts,invoices,customers):
     # Will dump all receipt data and return 1 dictionary as a result (with header and line item joined).  
     # Please show the customer name and product name also. 
     # A helper function such as def print_tabular_dictionary(tabularDictionary) can then be called to print this in a tabular (table-like) form with column headings and data. 
@@ -396,14 +396,12 @@ def report_list_all_receipts():
     db = DBHelper()
     data, columns = db.fetch (' SELECT r.receipt_no as "Receipt No", r.date as "Date" '
                               ' , r.customer_code as "Customer Code", c.name as "Customer Name" '
-                              ' , pm.name as "Payment Medthod", r.payment_ref as "Paymet Refercence" '
+                              ' , r.payment_code as "Payment Medthod", r.payment_ref as "Paymet Refercence" '
                               ' , r.remark as "Remarks", r.total_received as "Total received" '
                               ' , rli.invoice_no as "Invoice No", i.date as "Date",rli.aph as "Amount Paid Here" '
                               ' FROM receipt as r'
                               ' INNER JOIN customer as c '
                               '     ON r.customer_code = c.customer_code '
-                              ' INNER JOIN paymentmethod as pm'
-                              '     ON r.payment_code = pm.code '
                               ' INNER JOIN receipt_line_item as rli'
                               '     ON r.receipt_no = rli.receipt_no'
                               ' INNER JOIN invoice as i'
@@ -416,7 +414,7 @@ def report_list_all_receipts():
     #                                           , 'Product Code', 'Product Name', 'Quantity', 'Unit Price', 'Extended Price'))
     return data #send result for caller program to use
 
-def report_unpaid_invoices():
+def report_unpaid_invoices(receipts,invoices,customers):
     db = DBHelper()
     data, columns = db.fetch (
                             'SELECT "Invoice No", i.date AS "Invoice Date", \

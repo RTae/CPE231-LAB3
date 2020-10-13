@@ -43,16 +43,13 @@ CREATE TABLE receipt (
     receipt_no character varying(10), 
     customer_code character varying(10),
 	date date,
-	payment_code character varying(10), 
+	payment_code character varying(20), 
 	payment_ref character varying(50),
 	total_received numeric(8,2),
 	remark character varying(100),
     PRIMARY KEY (receipt_no),
     CONSTRAINT receipt_customer_customer_code_fkey FOREIGN KEY (customer_code)
         REFERENCES customer (customer_code) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE NO ACTION,
-	CONSTRAINT receipt_payment_payment_code_fkey FOREIGN KEY (payment_code)
-        REFERENCES paymentmethod (code) MATCH SIMPLE
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 

@@ -1,0 +1,97 @@
+Product Create Success.
+Product Create Success.
+Product Create Success.
+{'HD01': {'Name': 'Seagate HDD 80 GB', 'Units': 'PCS'}, 'HD02': {'Name': 'IBM HDD 60 GB', 'Units': 'PCS'}, 'INT01': {'Name': 'Intel Pentium IV 3.6 GHz', 'Units': 'PCS'}}
+These are 3 products in the database (Press a key to continue).
+
+Customer Create Success.
+Customer Create Success.
+
+Customer Code, Name, Address, Credit Limit, Country
+Sam, Sam Co., Ltd., 122 Bangkok, 500000, Thailand
+CP, CPALL, 123 Bangkok, 100000, Thailand
+These are 2 customers in the database (Press a key to continue).
+
+Invoice Create Success.
+Invoice Create Success.
+
+Invoice No, Date, Customer Code, Customer Name, Due Date, Total, VAT, Amount Due, Product Code, Product Name, Quantity, Unit Price, Extended Price
+INT100/20, 2020-01-03, Sam, Sam Co., Ltd., None, 14000.00, 980.00, 14980.00, HD02, IBM HDD 60 GB, 8, 1000.00, 8000.00
+INT101/20, 2020-01-04, CP, CPALL, None, 2000.00, 140.00, 2140.00, HD02, IBM HDD 60 GB, 1, 2000.00, 2000.00
+These are 2 invoices in the database (Press a key to continue).
+
+Receipt Create Success.
+Receipt Create Success.
+Receipt Create Success.
+Receipt No, Date, Customer Code, Customer Name, Payment Medthod, Paymet Refercence, Remarks, Total received, Invoice No, Date, Amount Paid Here
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT100/20, 2020-01-03, 100.00
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT101/20, 2020-01-04, 200.00
+RCT1002/20, 2020-02-05, Sam, Sam Co., Ltd., Credit Card, Master Card, Citibank, Partially paid on INT101/20, 10000.00, INT100/20, 2020-01-03, 8560.00
+RCT1002/20, 2020-02-05, Sam, Sam Co., Ltd., Credit Card, Master Card, Citibank, Partially paid on INT101/20, 10000.00, INT101/20, 2020-01-04, 1440.00
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30.00, INT100/20, 2020-01-03, 10.00
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30.00, INT101/20, 2020-01-04, 20.00
+Results of creating 3 receipts: RCT1001/20, RCT1002/20, and RCT1003/20 (Press a key to continue).
+
+{'RCT1003/20': {'customer_code': 'CP', 'date': datetime.date(2020, 2, 6), 'payment_code': 'Debit Card', 'payment_ref': 'Debit Card', 'total_received': Decimal('30.00'), 'remark': 'This will later be deleted'}}
+Receipt No 'RCT1005/20' not found. Cannot Read.
+Receipt No, Date, Customer Code, Customer Name, Payment Medthod, Paymet Refercence, Remarks, Total received, Invoice No, Date, Amount Paid Here
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT100/20, 2020-01-03, 100.00
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT101/20, 2020-01-04, 200.00
+RCT1002/20, 2020-02-05, Sam, Sam Co., Ltd., Credit Card, Master Card, Citibank, Partially paid on INT101/20, 10000.00, INT100/20, 2020-01-03, 8560.00
+RCT1002/20, 2020-02-05, Sam, Sam Co., Ltd., Credit Card, Master Card, Citibank, Partially paid on INT101/20, 10000.00, INT101/20, 2020-01-04, 1440.00
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30.00, INT100/20, 2020-01-03, 10.00
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30.00, INT101/20, 2020-01-04, 20.00
+Results of reading 2 receipts: RCT1003/20 (successfully), and RCT1005/20 (unsuccessfully) (Press a key to continue).
+
+Receipt Update Success.
+Receipt No ''RCT1004/20'' not found. Cannot Update.
+Receipt No, Date, Customer Code, Customer Name, Payment Medthod, Paymet Refercence, Remarks, Total received, Invoice No, Date, Amount Paid Here
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT100/20, 2020-01-03, 100.00
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT101/20, 2020-01-04, 200.00
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30.00, INT100/20, 2020-01-03, 10.00
+RCT1003/20, 2020-02-06, CP, CPALL, Debit Card, Debit Card, This will later be deleted, 30.00, INT101/20, 2020-01-04, 20.00
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT100/20, 2020-01-03, 8000.00
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT101/20, 2020-01-04, 1400.00
+Results of updating 2 receipts: RCT1002/20 (successfully) and RCT1004/20 (unsuccessfully) (Press a key to continue).
+
+Invoice Delete Success.
+Invoice No 'RCT1005/20' not found. Cannot Delete
+Receipt No, Date, Customer Code, Customer Name, Payment Medthod, Paymet Refercence, Remarks, Total received, Invoice No, Date, Amount Paid Here
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT100/20, 2020-01-03, 100.00
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 300.00, INT101/20, 2020-01-04, 200.00
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT100/20, 2020-01-03, 8000.00
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT101/20, 2020-01-04, 1400.00
+Results of deleting 2 receipts: RCT1003/20 (successfully) and RCT1005/20 (unsuccessfully) (Press a key to continue).
+
+
+Invoice No, Invoice Date, Customer Name, Invoice Amount Due, Invoice Amount Received, Invoice Amount Not piad
+INT100/20, 2020-01-03, Sam Co., Ltd., 14980.00, 8100.00, 6880.00
+INT101/20, 2020-01-04, CPALL, 2140.00, 1600.00, 540.00
+{'Total invoice amount not paid': Decimal('7420.00'), 'Number of Invoice not paid': 2}
+Report unpaid invoice 1 (Press a key to continue).
+
+Invoice Line Item Update Success.
+Invocie Code 'INT100/20' not found in Receipt No 'RCT1005/20'. Cannot Update.
+Invocie Code 'INT103/20' not found in Receipt No 'RCT1001/20'. Cannot Update.
+Receipt No, Date, Customer Code, Customer Name, Payment Medthod, Paymet Refercence, Remarks, Total received, Invoice No, Date, Amount Paid Here
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 400.00, INT101/20, 2020-01-04, 200.00
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT100/20, 2020-01-03, 8000.00
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT101/20, 2020-01-04, 1400.00
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 400.00, INT100/20, 2020-01-03, 200.00
+Result of updating 3 receipt line, first successfully, others unsuccessfully (Press a key to continue).
+
+Invoice Line Item Delete Success.
+Product Code 'INT100/20' not found in Invoice No 'RCT1003/20'. Cannot Delete.
+Product Code 'INT103/20' not found in Invoice No 'RCT1001/20'. Cannot Delete.
+Receipt No, Date, Customer Code, Customer Name, Payment Medthod, Paymet Refercence, Remarks, Total received, Invoice No, Date, Amount Paid Here
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT100/20, 2020-01-03, 8000.00
+RCT1002/20, 2020-02-06, Sam, Sam Co., Ltd., Debit Card, VISA card, Partially paid on INT100/20 and INT101/20, 9400.00, INT101/20, 2020-01-04, 1400.00
+RCT1001/20, 2020-02-04, CP, CPALL, Cash, Nothing, Paid all invoices partially, 200.00, INT100/20, 2020-01-03, 200.00
+Result of deleting 3 receipt line, first successfully, others unsuccessfully (Press a key to continue).
+
+
+Invoice No, Invoice Date, Customer Name, Invoice Amount Due, Invoice Amount Received, Invoice Amount Not piad
+INT100/20, 2020-01-03, Sam Co., Ltd., 14980.00, 8200.00, 6780.00
+INT101/20, 2020-01-04, CPALL, 2140.00, 1400.00, 740.00
+{'Total invoice amount not paid': Decimal('7520.00'), 'Number of Invoice not paid': 2}
+Normal Termination.   Goodbye!
